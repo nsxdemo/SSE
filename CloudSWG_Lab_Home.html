@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- Current Version Date: 08-23-21 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EMEA - VeloCloud SDWAN / Symantec SSE Demo Lab</title>
+    <style type="text/css">
+        /* Global for all user-defined exception pages */
+        body {margin: 0px;background-color: rgb(33,60,96);color: white;font-family: Calibri,Helvetica,Arial,sans-serif;font-size: 18px;}
+        td {vertical-align: top;}
+        a {color: #d7d1ce;text-decoration: none;}
+        a:hover {border-bottom: 1px solid #fdbb30;}
+        wbr {display: inline-block;}
+        .footer {font-size: 12px;font-style: italic;float: right;text-align: right;}
+        .caCert {text-align: left;}
+        #caCertNotInstalled {display: none;}
+        #caCertInstalled {display: inline;}
+        .content {margin: 25px;}
+        .details {padding: 0px 15px;}
+        .contact {font-size: 14px;margin: 10px 0px;}
+        .help {font-size: 14px;margin: 10px 0px;}
+        #virusDetails {margin: 10px;}
+        .nodisplay {display: none;}
+        .nodisplay0 {display: none;}
+        .nodisplayundefined, .nodisplayUndefined {display: none;}
+        .nodisplaynone, .nodisplayNone {display: none;}
+        .nodisplay0.0.0.0, .nodisplay255.255.255.255 {display: none;}
+    </style>
+    <script type="text/javascript">
+        function caCert() {
+            document.getElementById("caCertNotInstalled").style.display = "inline";
+            document.getElementById("caCertInstalled").style.display = "none";
+        }
+    </script>
+  </head>
+  <body>
+    <div style="top: 0;left: 0;width: 100%;height: 100px;background: #FFFFFF;">
+      <img src="data:image/png;base64,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" style="width: 163px; height: 43px; padding: 25px;">
+    </div>
+    <div style="margin: 25px;">
+      <span style="font-size:20px"> EMEA - VeloCloud SDWAN / Symantec SSE Demo Lab</span>
+      <div style="height: 12px;border-top: solid 3px rgb(253,193,49);"> </div>
+
+      <div class="details">
+        <table>
+          <tbody><tr style="vertical-align: top;">
+            <td style="padding: 0px 20px 0px 0px;">
+              <b>Broadcom</b>
+              <ul>
+
+                <li>
+                  <a href="https://portal.threatpulse.com/" rel="noreferrer" target="_blank">Cloud SWG Portal</a>
+                </li>
+                <li>
+                  <a href="https://outlook.office.com/mail/inbox" rel="noreferrer" target="_blank">Student Mailbox Login</a>
+                </li>
+                <li>
+                  <a href="http://sitereview.bluecoat.com/" rel="noreferrer" target="_blank">WebPulse Site Review</a>
+                </li>
+                <li>
+                  <a href="https://www.broadcom.com/" rel="noreferrer" target="_blank">Broadcom.com</a>
+                </li>
+                <li>
+                  <a href="https://support.broadcom.com/security" rel="noreferrer" target="_blank">Broadcom Support</a>
+                </li>
+              </ul>
+              <b>Tools</b>
+              <ul>
+                <li>
+                  <a href="http://test.threatpulse.com/" rel="noreferrer" target="_blank">Test ThreatPulse Protection</a>
+                </li>
+                <li>
+                  <a href="http://pod.threatpulse.com/" rel="noreferrer" target="_blank">Display which Data Pod Cloud SWG is connecting to</a>
+                </li>
+                <li>
+                  <a href="https://www.whatsmyip.org/" rel="noreferrer" target="_blank">What's My Ip Address</a>
+                </li>
+                <li>
+                  <a href="https://dlptest.com/sample-data/namessndob/" rel="noreferrer" target="_blank">Sample DLP testing files</a>
+                </li>
+                <li>
+                  <a href="http://2016.eicar.org/86-0-Intended-use.html" rel="noreferrer" target="_blank">Eicar</a>
+                </li>
+                <li>
+                  <a href="https://knowledge.broadcom.com/external/article?legacyId=TECH159481#403" rel="noreferrer" target="_blank">CloudCar Test File</a>
+                </li>
+                <li>
+                  <a href="https://knowledge.broadcom.com/external/article?legacyId=tech216647" rel="noreferrer" target="_blank">Socar Test File</a>
+                </li>
+                <li>
+                  <a href="https://www.virustotal.com/en/" rel="noreferrer" target="_blank">VirusTotal</a>
+                </li>
+                <li>
+                  <a href="http://7blessings.co.uk/" rel="noreferrer" target="_blank">7Blessings Toolbox</a>
+                </li>
+                <li>
+                  <a href="https://www.ssllabs.com/ssltest/viewMyClient.html" rel="noreferrer" target="_blank">SSL Labs (SSL/TLS Tests)</a>
+                </li>
+                <li>
+                  <a href="https://badssl.com/dashboard/" rel="noreferrer" target="_blank">Bad SSL Test Site</a>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <b>Acceptable Use</b>
+              <ul>
+                <li>
+                                Search Engines:
+                  <a href="https://www.google.com/" rel="noreferrer" target="_blank">Google</a>
+                  <a href="https://www.bing.com/" rel="noreferrer" target="_blank">Bing</a>
+                </li>
+                <li>
+                                Web Mail:
+                  <a href="https://mail.google.com/" rel="noreferrer" target="_blank">Gmail</a>
+                  <a href="https://outlook.office365.com/" rel="noreferrer" target="_blank">Office 365</a>
+                </li>
+                <li>
+                                Banking:
+                  <a href="https://www.chase.com/" rel="noreferrer" target="_blank">US</a>
+                  <a href="https://www.credit-agricole.fr/" rel="noreferrer" target="_blank">FR</a>
+                  <a href="https://www.deutsche-bank.de/" rel="noreferrer" target="_blank">DE</a>
+                </li>
+                <li>
+                                Social Networking:
+                  <a href="https://www.facebook.com/Symantec/" rel="noreferrer" target="_blank">Facebook</a>
+                  <a href="https://twitter.com/Symantec/" rel="noreferrer" target="_blank">Twitter</a>
+                </li>
+                <li>
+                                File Storage/Sharing:
+                  <a href="https://www.box.com/" rel="noreferrer" target="_blank">Box</a>
+                  <a href="https://www.dropbox.com/" rel="noreferrer" target="_blank">Dropbox</a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/" rel="noreferrer" target="_blank">YouTube</a>:
+                  <a href="https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg" rel="noreferrer" target="_blank">Gaming</a>
+                  <a href="https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ" rel="noreferrer" target="_blank">Music</a>
+                </li>
+                <li>
+                  <a href="http://www.angrybirdsnest.com/" rel="noreferrer" target="_blank">Games</a>
+                </li>
+                <li>
+                  <a href="https://www.partypoker.com/" rel="noreferrer" target="_blank">Gambling</a>
+                </li>
+                <li>
+                                Geolocation Test:
+                  <a href="http://ria.ru/" rel="noreferrer" target="_blank">Russia</a>
+                  <a href="http://china.cn/" rel="noreferrer" target="_blank">China</a>
+                </li>
+              </ul>
+              <b>Threat Protection</b>
+              <br>
+              <span style="font-size: 14px">* Safe: These are not real sites. For testing purposes.</span>
+              <ul>
+                <li>
+                  <a href="http://testrating.webfilter.bluecoat.com/Pornography" rel="noreferrer" target="_blank">Pornography</a>*
+                </li>
+                <li>
+                  <a href="http://testrating.webfilter.bluecoat.com/threatrisk/level/10" rel="noreferrer" target="_blank">Malicious - Threat Risk Level 10</a>*
+                </li>
+                <li>
+                  <a href="https://www.wicar.org/" rel="noreferrer" target="_blank">Web Ads/Malvertizing</a>*
+                </li>
+                <li>
+                  <a href="https://file-examples.com/" rel="noreferrer" target="_blank">File Downloading Test Site</a>*
+                </li>
+                <li>
+                  <a href="http://testpusdomain.com/" rel="noreferrer" target="_blank">Potentially Unwanted Software-Threat Risk 7</a>*
+                </li>
+                <li>
+                  <a href="http://testdyndnsdomain.com/" rel="noreferrer" target="_blank">Dynamic DNS-Safe</a>*
+                </li>
+                <li>
+                  <a href="http://malicioussubdomain.testdyndnsdomain.com/" rel="noreferrer" target="_blank">Dynamic DNS-Malicious subdomain</a>*
+                </li>
+                <li>
+                  <a href="http://testmalvertisingonlegitdomain.com/" rel="noreferrer" target="_blank">Compromised Legit WebSite</a>*
+                </li>
+                <li>
+                  <a href="http://testmalvertising.com/" rel="noreferrer" target="_blank">Malicious Ad Domain</a>*
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td> </td>
+          </tr>
+        </tbody></table>
+      </div>
+      <div class="help">
+      </div>
+      <div class="contact">
+            For assistance, contact your network support team.<br>
+            The company policy can be reviewed here:
+        <a href="about:blank" target="_blank">Computer Use Policy</a>
+        <br>
+      </div>
+    </div>
+  
+</body></html>
